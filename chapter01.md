@@ -19,7 +19,7 @@ Windows에서 공부해도 상관 없습니다. 파이썬 인터프리터만 환
 
 Windows에서는
 [파이썬 공식 홈페이지](http://www.python.org/downloads/)에서 윈도우용 파이썬 패키지를 다운로드 하여 설치 합니다.
-![download-python](/image/chapter01-download-python)
+![download-python](https://github.com/HolyPeople/2021-1-py-basic/blob/dev/image/chapter01-download-python.png)
 
 Debian 계열 Linux에서는
 ```bash
