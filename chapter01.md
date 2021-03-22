@@ -26,5 +26,5 @@ Debian 계열 Linux에서는
 $ sudo apt install python3
 ```
 > python 과 python3
-리눅스에서 python은 python2를 의미합니다.
+리눅스에서 python은 python2를 의미합니다.<br>
 우리는 python3을 이용할 것이기 때문에 python3 이라고 입력해야 합니다.
