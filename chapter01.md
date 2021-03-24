@@ -67,11 +67,20 @@ Windows에서 공부해도 상관 없습니다. 파이썬 인터프리터만 환
 자바도 자바실행환경만 갖주면 어디서든 동일한 코드를 실행 할 수 있죠
 
 #### 설치
-Windows에서는
+##### Windows에서는
 [파이썬 공식 홈페이지](http://www.python.org/downloads/)에서 윈도우용 파이썬 패키지를 다운로드 하여 설치 합니다.
-![download-python](https://github.com/HolyPeople/2021-1-py-basic/blob/dev/image/chapter01-download-python.png)
 
-Debian 계열 Linux에서는
+![download-python](image/chapter01-download-python.png)
+작성일 기준으로 최신 버전은 3.9.2 버전입니다. 3.X.X버전이 이미 설치되어 있다면 상관 없습니다.
+
+![](image/chapter01-install-python.png)
+파이썬을 설치할 때 PATH를 추가해서 어디서든지 파이썬을 실행 할 수 있도록 하겠습니다.<br>
+이제 install을 눌러 설치를 시작합시다.
+
+![](image/chapter01-start_menu.png)
+파이썬이 설치되면 시작 메뉴에 파이썬이 생깁니다.
+
+###### Debian 계열 Linux에서는
 ```bash
 $ sudo apt install python3
 ```
@@ -79,9 +88,65 @@ $ sudo apt install python3
 리눅스에서 python은 python2를 의미합니다.<br>
 우리는 python3을 이용할 것이기 때문에 python3 이라고 입력해야 합니다.
 
-### 파이썬 실행
+### 실행
+이제 파이썬을 실행헤 보겠습니다.<br>
+windows에서는 시작 메뉴에서 python.exe를 실행하면 됩니다.<br>
+설치할 때 PATH를 추가했다면 명령 트롬프트<sup>CMD</sup> 에서 python을 입력해도 됩니다.
+
+```
+Python 3.9.2 (tags/v3.9.2:1a79785, Feb 19 2021, 13:44:55) [MSC v.1928 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+```
+
+Linux에서는 python3을 입력해서 실행해 보겠습니다.
+```bash
+root@:/workspace/2021-1-py-basic(dev)# python3
+Python 3.7.4 (default, Nov  4 2020, 10:17:35)
+[GCC 7.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+```
+
+`>>>`는 **프롬프트**<sup>prompt</sup>라고 합니다. <br>
+여기에 코드를 입력하면 실행결과를 바로 볼 수 있습니다.
+
+컴퓨터와 상호 작용하는 공간이라는 의미로 **인터렉티브 셸**이라고 부릅니다.<br>
+또는 한 마디씩 주고받는것처럼 대화한다고 해서 **대화형 셸**이라고 부르기도 합니다.
 
 ### 텍스트 에디터 사용
-#### IDLE 
-#### Visual Studio Code
+대화형 셸을 이용하면 실행결과를 바로 확인할 때 편할 것입니다.<br>
+만약 긴 코드를 작성하거나, 코드를 저장할 일이 생긴다면 어떻게 해야 할까요?
 
+우리는 일반적으로 **택스트 에디터**<sup>text editor</sup>라는 프로그램을 사용합니다.<br>
+글자를 적을 수 있는 모든 프로그램을 말합니다. 메모장이나 vi도 텍스트 에디터 입니다.
+
+코딩하기 좀 더 편하게 해주는 텍스트 에디터도 있습니다. <br>
+문법에 맞게 하이라이팅을 넣어 준다던지, 여러 확장 플러그인을 설치할 수도 있습니다. <br>
+Visual Studio Code(VSC)에서 Python확장을 설치해서 사용해도 됩니다.<br>
+
+## Hello, Python
+`hello.py`라는 파일을 생성해서 택스트 에디터로 작성해 봅시다.
+
+```python
+# hello.py
+print("Hello, KCA!\n")
+```
+작성한 후에는 저장한 뒤 terminal에서 실행해 봅시다.
+```bash
+# cd ./chapter01
+chapter01# python3 hello.py
+```
+정상적으로 실행되면 다음과 같이 출력됩니다.
+
+```
+Hello, KCA!
+```
+
+## 과제
+1. 실습 환경을 구축합니다.
+2. `hello.py`를 작성해서 실행 화면을 캡처하여
+3. py소스파일, 스크린샷 이미지를 git저장소에 올려서 Pull Request를 보내주시면 됩니다. 
+
+본인 이름 혹은 식별할 수 있는 문자열로 된 디렉토리를 생성하고 그 하위 디렉토리로 `chapter01` 을 만들어 그 안에 파일들을 넣어주세요.    
+과제를 성공적으로 완료하였다고 판단되면 merge 해드리며, 그렇지 않을 경우 comment로 피드백 드리겠습니다.
