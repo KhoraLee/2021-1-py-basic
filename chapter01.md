@@ -71,13 +71,16 @@ Windows에서 공부해도 상관 없습니다. 파이썬 인터프리터만 환
 [파이썬 공식 홈페이지](http://www.python.org/downloads/)에서 윈도우용 파이썬 패키지를 다운로드 하여 설치 합니다.
 
 ![download-python](image/chapter01-download-python.png)
+
 작성일 기준으로 최신 버전은 3.9.2 버전입니다. 3.X.X버전이 이미 설치되어 있다면 상관 없습니다.
 
 ![](image/chapter01-install-python.png)
+
 파이썬을 설치할 때 PATH를 추가해서 어디서든지 파이썬을 실행 할 수 있도록 하겠습니다.<br>
 이제 install을 눌러 설치를 시작합시다.
 
 ![](image/chapter01-start_menu.png)
+
 파이썬이 설치되면 시작 메뉴에 파이썬이 생깁니다.
 
 ###### Debian 계열 Linux에서는
