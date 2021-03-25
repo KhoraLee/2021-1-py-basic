@@ -133,7 +133,7 @@ Visual Studio Code(VSC)에서 Python확장을 설치해서 사용해도 됩니�
 
 ```python
 # hello.py
-print("Hello, KCA!\n")
+print("Hello, KCA!")
 ```
 작성한 후에는 저장한 뒤 terminal에서 실행해 봅시다.
 ```bash
