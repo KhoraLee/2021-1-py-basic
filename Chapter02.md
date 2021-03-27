@@ -69,8 +69,8 @@ Type "help", "copyright", "credits" or "license" for more information.
 파이선 프롬프트<sup>Python prompt</sup> `>>>`에 `1 + 2`를 입력해 봅시다.<br>
 그러면 `3`이라는 값이 출력될 것입니다.
 ```cmd
->>> 1 + 3
-2
+>>> 1 + 2
+3
 ```
 덧샘 뿐만 아니라 다른 연산도 해봅시다.
 
