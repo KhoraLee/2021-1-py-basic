@@ -1,6 +1,8 @@
 # Chapter02
 [파이썬의 기본 문법](#파이썬의-기본-문법)<br>
-[사칙연산](#사칙-연산)
+[사칙연산](#사칙-연산)<br>
+[변수와 자료형](#변수와-자료형)<br>
+[좀더 알아보기](#좀-더-알아보기)
 
 ## 파이썬의 기본 문법
 지난시간에는 파이썬 프로그래밍을 위한 개발환경을 만들고, 간단한 문자열을 출력해보았습니다.<br>
@@ -248,9 +250,7 @@ C언어는 ASCII Code를 통해 문자를 정수로 표현했습니다.<br>
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: can only concatenate str (not "int") to str
->>>
 ```
-
 문자열 끼리도 더할 수 있나요?<br>
 네 물론 곱하기도 됩니다!!
 ```cmd
@@ -258,6 +258,46 @@ TypeError: can only concatenate str (not "int") to str
 'HelloWorld'
 >>> '=' * 30
 '=============================='
+```
+프로그램을 실행할 때마다 다른 문자열을 출력하고 싶어요!<br>
+오,, 문자열 포멧팅을 사용하면됩니다.
+
+다음은 문자열 포맷팅의 3가지 방법입니다.
+1. 포멧코드 이용하기<br>
+  `%`기호를 사용해서 만드는 포멧 코드는 C언어의 `printf()`, Java언어의 `System.out.printf()`에서 사용해 봤을지도 모릅니다.<br>
+  다음은 문자열 포멧 코드입니다.
+  - `%s`	문자열(String), object -> `%s`에 들어오는 모든 object를 문자열로 만들어줍니다.
+  - `%c`	문자 1개(character)
+  - `%d`	10진수(decimal)
+  - `%f`	부동소수점수(floating-point number)
+  - `%o`	8진수(octal)
+  - `%x`	16진수(hexadecimal)
+  - `%%`	character %
+  이 문자열 포멧 코드를 이용해 우리는 다음과 같이 쓸 수 있습니다.<br>
+  `'%d, %f' % (decimal, n_float)`이 문장은 10진수와 부동소수점수를 문자열로 만들어줍니다.
+2. format 함수사용하기
+  `str.format(*args, **kwargs)`함수를 사용하면 됩니다.
+  ```cmd
+  >>> 'bp is {systolic} and {diastolic}'.format(systolic=120, diastolic=80)
+  'bp is 120 and 80'
+  >>> '{} {} {}'.format('apple', 'pie', 3)
+  'apple pie 3' 
+  ```
+3. f 문자열
+  3.6버전 이상부터는 f'str'을 사용할 수 있습니다.<br>
+  f-string은 표현식을 지원하기 때문에 계산식도 넣을 수 있습니다.<br>
+  `f'3 + 5 = {3 + 5}'`같이 `{ }`안에 표현식이나 변수를 넣으면 문자열로 변환 해 줍니다.<br>
+모두 종합해서 한번에 써보겠습니다.
+```python
+if __name__ == '__main__':
+
+    integer = 10
+    floating-point = 3.5
+    comflex = (3 + 2j)
+    
+    print("%d", % integer)
+    print(f'{floating-point}')
+    print('{}'.format(comflex))
 ```
 #### list
 리스트는 모음입니다. 숫자의 모음이 될 수도 있고, 객체의 모음이 될 수도 있죠.<br>
@@ -419,10 +459,15 @@ dict_items([('apple', '사과'), ('KCA', 'KonKuk Computer Associate')])
 {1, 2, 3}
 ```
 
-## 좀 더 알이보기
+## 좀 더 알아보기
 파이썬이 기본으로 제공하는 여러 함수가 있습니다. 당장 `print()`를 알고 있을 것입니다.<br>
 만약 모르는 것이 나타나면 그때 그때 찾아봐야 할 것입니다.<br>
 파이썬에게 물어보는 방법도 있죠.
+
+`help([object])`를 사용해서 물어보면 됩니다.<br>
+여러분이 `help`를 호출하면 파이썬에 있는 도움말 시스템을 불러옵니다.<br>
+`object`가 `str`이면 문자열은 모듈, 함수, 클래스, 메서드, 키워드 또는 설명서 주제의 이름으로 검색합니다.<br>
+다른 종류의 객체라면, 그 객체에 대한 도움말 페이지가 만들어집니다.
 ```cmd
 >>> help(int)
 Help on class int in module builtins:
@@ -439,20 +484,29 @@ class int(object)
 
 아니면 [파이썬 공식 Reference 문서](https://docs.python.org/3/reference/index.html)를 읽어도 됩니다.
 
-
-
 ## 과제
-다음은 문자열 포맷팅의 3가지 방법입니다.
-1. 포멧코드 이용하기
-``
-```python
-if __name__ == '__main__':
+태양계에서 행성이 가지는 특성을 자료형을 이용하여 저장했다가 출력하는 프로그램을 만들어 보아요.<br>
+태양과의 거리, 태양계의 행성들, 자전이나 공전주기, 중력가속도 등 원하는 것을 한가지 골라 프로그램을 만들어 보세요.
 
-    integer = 10
-    floating-point = 3.5
-    comflex = (3 + 2j)
-    
-    print("%d", % integer)
-    print(f'{floating-point}')
-    print('{}'.format(comflex))
+`input(prompt)` 는 prompt를 먼저 출력하고 사용자의 입력을 받습니다.<br>
+사용자가 작성한 값은 문자열로 입력되기 때문에 적절히 형변환하여 사용할 수 있습니다.
+
+다음은 예시 입니다.
+```python
+def show_menu():
+  print('+==================================================+')
+  print('+1. Distance to the sun  2. Planets of Solar-sytem +')
+  print('+3. Rotation_period      4. Revolution_period      +')
+  print('+5. Gravitational_acceleration                     +')
+  print('+0. Quit Programm                                  +')
+  print('+==================================================+')
+
+
+if __name__ == '__main__':
+  print('-------------- the Solar System INFOMATION --------------')
+  show_menu()
+  selected = input('select menu: ')
+  print(f'slected menu is {menu}')
+
 ```
+program을 완성해서 PR 보내주시면 코드 리뷰 하겠습니다.
