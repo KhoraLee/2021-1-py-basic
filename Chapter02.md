@@ -8,7 +8,7 @@
 
 ### 주석
 주석은 소스코드를 읽는 **사람**에게 주는 설명입니다.<br>
-당연히 기계어 번역기는 주석을 읽지 않습니다.<br>
+당연히 번역기는 주석을 읽지 않습니다.<br>
 다음은 파이썬의 주석 예시입니다.
 ```python
 # objects를 sep로 나누고 end를 붙여서 file로 출력합니다.
@@ -145,4 +145,314 @@ Type "help", "copyright", "credits" or "license" for more information.
 14
 >>> (2 + 3) * 4
 20
+```
+
+## 변수와 자료형
+아니요... 근데 오늘 자료형 배우는 날 아닌가요??<br>
+여러분은 이미 알고 있습니다. 자료형이 뭔지 말이죠 다만, 단어가 생소해서 모르고 있을 뿐입니다.<br>
+그럼 이렇게 말해봅시다. 정수, 실수, 복소수, 문자열, ...
+
+방금 까지 숫자를 이용한 연산을 공부해온 여러분이라면 숫자형이 무엇을 의미하는지 알 것입니다.<br>
+**integer! float-pinting Number! comflex!
+```cmd
+>>> type(2)
+<class 'int'>
+>>> type(1.2)
+<class 'float'>
+>>> type(3 + 2j)
+<class 'complex'>
+>>>
+```
+
+### 변수
+대부분의 프로그래밍 언어 수업에서는 변수와 자료형을 함께 공부합니다<br>
+왜냐하면 변수를 선언할 때 어떤 자료형을 쓸 것인지 정해 주어야 했습니다.<br>
+하지만 파이썬은 그럴 필요가 없습니다. 단순히 이름만 붙여주면 되기 때문입니다.
+
+**변수의 선언**<sup>define variables</sup>은 이름 붙여주기 입니다.<br>
+다음과 같이 작성해 봅시다.
+```cmd
+>>> spam = 2
+>>> bacon = 3.5
+```
+결과 값이 없어도 당황하지 말아요! 그게 정상입니다.<br>
+방금 우리는 `2`와 `3.5`에 `spam`과 `bacon`이라는 이름을 붙여주었습니다.<br>
+그럼 잘 선언되었는지 확인해 보겠습니다.
+
+```cmd
+>>> globals()
+{'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': <class '_frozen_importlib.BuiltinImporter'>, '__spec__': None, '__annotations__': {}, '__builtins__': <module 'builtins' (built-in)>, 'spa
+m': 2, 'bacon': 3.5}
+```
+
+### 자료형과 객체
+파이썬은 모든 자료형을 객체로 정의합니다.<br>
+`type()`함수를 이용해서 방금 선언한 변수의 형<sup>type</sup>을 알아봅시다.
+```cmd
+>>> type(spam)
+<class 'int'>
+>>> type(bacon)
+<class 'float'>
+```
+
+`spam`은 `int`라는 `class`라고 합니다.
+
+자료형이 객체라고 했습니다. 객체나 클레스가 지금은 어떤 의미가 있는지는 자세하게는 몰라도 됩니다.<br>
+단순하게 어떤형인지 알려주는게 아니라는 것만 알면 됩니다.
+
+`dir(spam)`을 입력해 보겠습니다.
+```cmd
+>>> dir(spam)
+['__abs__', '__add__', '__and__', '__bool__', '__ce ...중략... or', 'real', 'to_bytes']
+```
+파이썬의 `int`가 할 수 있는 많은 것을 알 수 있습니다. 
+
+### 자료형( )
+위에서 `int()`나 `float()`을 이용했습니다. 해당 자료형으로 변환 해주는 기능도 있는데, 그 자료형을 생성할 수도 있습니다.
+
+```cmd
+>>> int()
+0
+>>> float()
+0.0
+>>> complex()
+0j
+```
+
+### More Types
+앞에서 설명한 숫자 자료형 외에도 여려가지 자료형이 있습니다.<br>
+`str`, `list`, `tuple`, `bool`, `dict`, `set`<br>
+간단하게 어떤 자료형인지만 알고 넘어가도록 하죠. 왜냐하면 이 자료형마다 하나의 강의가 필요합니다.
+뭐,, 정확히 따지자면 자료형이 아니라 자료 구조라고 해야 맞습니다.<br>
+`bool`을 제외하면 각각의 자료에 특별한 기능이 추가되어 있기 떄문이죠<br>
+어... 파이썬은 모든 자료형이 객체라서, 여기선 자료 구조라고 해야 할 까요 ㅎㅎ
+
+#### str
+문자열<sup>String</sup> 자료형 입니다. 단어 그대로 문자들의 연결이죠.<br>
+파이썬에서는 다음과 같이 작성합니다.
+
+```cmd
+>>> 'Hello, Python`
+'Hello, Python'
+```
+하나의 문자도 문자열입니다.
+```cmd
+>>> type('A')
+<class 'str'>
+```
+C언어는 ASCII Code를 통해 문자를 정수로 표현했습니다.<br>
+그래서 'A' + 3 이라는 재미난 일도 할 수 있죠.<br>
+하지만 파이썬에서는 안됩니다. 문자가 아니라 문자열 이기 때문이죠<br>
+```cmd
+>>> 'A' + 3
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: can only concatenate str (not "int") to str
+>>>
+```
+
+문자열 끼리도 더할 수 있나요?<br>
+네 물론 곱하기도 됩니다!!
+```cmd
+>>> 'Hello' + 'World'
+'HelloWorld'
+>>> '=' * 30
+'=============================='
+```
+#### list
+리스트는 모음입니다. 숫자의 모음이 될 수도 있고, 객체의 모음이 될 수도 있죠.<br>
+심지어는 리스트의 모음이 될 수도 있습니다. ~~음, 그럼 모음의 모음인가요~~
+
+리스트의 선언은 다음과 같이 합니다.
+```cmd
+LIST_NAME = [OBJECT1, OBJECT2, OBJECT3, ...]
+```
+
+그러면 모음을 생성해 보곘습니다.
+```cmd
+>>> list1 = []
+>>> list2 = [2, 4, 6, 8, 10]
+>>> list1 = ['KonKuk', 'Computer', 'Associate']
+>>> list1 = [1, 3, [5, 7, 9], 10]
+```
+
+리스트의 각 요소를 불러올 때는 Index를 사용합니다. 문자열이나 튜플도 다음과 같이 불러올 수 있습니다.<br>
+리스트와 문자열, 튜플은 모두 순서가 있는 자료이기 떄문입니다.<br>
+다음의 방법을 통해 요소를 불러와 봅시다.
+
+```cmd
+>>> string = ['H', 'e', 'l', 'l', 'o', ',', ' ', 'K', 'C', 'A']
+>>> string[3]
+'l'
+>>> string[-2]
+'C'
+>>> string[2:5]
+['l', 'l', 'o']
+```
+`[ ]`기호를 통해 요소를 불러 올 수 있습니다.<br>
+하나를 불러올 수도 있고, 여러개를 한번에 불러올 수도 있습니다.<br>
+요소 하나를 불러오면 타입은 요소의 타입이 되고, 여러개를 불러오면 리스트 타입이 됩니다.
+
+인텍스는 처음부터 `0`으로 시작하고 마지막부터 `-1`로 시작합니다.
+
+|'H'|'e'|'l'|'l'|'o'|','|' '|'K'|'C'|'A'|
+|--|--|--|--|--|--|--|--|--|--|
+|0|1|2|3|4|5|6|7|8|9|
+|-10|-9|-8|-7|-6|-5|-4|-3|-2|-1|
+
+길이를 구하고 싶다면 다음과 같이 하면 됩니다.
+```cmd
+>>> len(string)
+10
+```
+#### tuple
+튜플은 리스트와 굉장히 유사합니다.
+요소를 수정할 수 없다만 빼고 말이죠.
+```cmd
+>>> t1 = (1, 2, 'a', 'b')
+>>> del t1[0]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'tuple' object doesn't support item deletion
+>>> t1[0] = 3
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'tuple' object does not support item assignment
+```
+문자열이나 리스트처럼, 요소를 추출할 수도 있고.<br>
+더하거나 곱할수도 있습니다. 길이를 구하는 것도 같습니다.<br>
+단지 요소를 수정할 수만 없을 뿐이죠.
+
+#### bool
+`bool`은 `True`나 `False`를 나타내는 자료형입니다. 참 혹은 거짓 둘 중 한 가지만 가질 수 있죠<br>
+```cmd
+>>> t = True
+>>> f = False
+```
+`bool`은 조건 연산의 결과 값으로 사용됩니다. 조건연산은 다음과 같이 합니다.
+
+- `==`: equals
+- `!=`: not equals to
+- `<`: less than
+- `>`: greater than
+- `<=`: less than or equal to
+- `>=`: greater than or equal to
+
+직접 해보겠습니다.
+
+```cmd
+>>> 3 == 2
+False
+>>> 3 != 2
+True
+>>> 1 < 3
+True
+```
+
+참과 거짓을 나타내는 값에 `bool`만 있는 것은 아닙니다.<br>
+`0`이 혹은 비어있는 것은 `True`이고 아닌 것은 `False`입니다.
+
+`int()`, `list()`같이 비어있는 혹은 자료형의 기본값은 거짓이고 아닌 것은 참입니다.
+```cmd
+>>> bool(list())
+False
+>>> bool(int())
+False
+>>> bool(1)
+True
+```
+#### dict
+단어사전을 생각해봅시다. 각각의 단어에는 각각의 뜻이 있습니다.<br>
+`dict`도 마찬가지죠 `key`와 `value`가 쌍을 이루고 있습니다.
+```
+DICTIONARY = {Key1:Value1, Key2:Value2, Key3:Value3, ...}
+```
+딕셔너리를 생성하고 사용해 봅시다.
+```cmd
+>>> dic = {'apple': '사과', 'KCA': 'KonKuk Computer Associate'}
+>>> dic['apple']
+'사과'
+>>> dic.keys()
+dict_keys(['apple', 'KCA'])
+>>> dic.values()
+dict_values(['사과', 'KonKuk Computer Associate'])
+>>> dic.items()
+dict_items([('apple', '사과'), ('KCA', 'KonKuk Computer Associate')])
+```
+#### set
+우리는 중학교 시절에 집합을 공부했습니다.<br>
+집합의 사전적 정의는 다음과 같습니다. **특정한 조건에 맞는 원소들의 모임**이다.
+
+집합을 이루는 조건에는 다음과 같습니다.
+- 중복을 허용하지 않는다.
+- 순서가 없다.
+
+리스트나 튜플은 순서가 있지만 집합은 없기 때문에 인덱싱이나 슬라이싱으로 값을 구할 수는 없습니다.<br>
+하지만 집합연산은 할 수 있죠. **교집합, 합집합, 차집합** 같은거 말입니다.
+
+- `&`: intersection 
+- `|`: union
+- `-`: difference
+다음과 같이 선언된 집합이 있다고 생각해 봅시다.
+```cmd
+>>> s1
+{1, 2, 3, 4, 5, 6}
+>>> s2
+{4, 5, 6, 7, 8, 9}
+```
+이 집합에 각각의 연산을 해봅시다.
+```cmd
+>>> s1 & s2
+{4, 5, 6}
+>>> s1 | s2
+{1, 2, 3, 4, 5, 6, 7, 8, 9}
+>>> s1 - s2
+{1, 2, 3}
+```
+연산자가 아니라 집합이 가지고 있는 함수를 사용해도 됩니다.
+```cmd
+>>> s1.intersection(s2)
+{4, 5, 6}
+>>> s1.union(s2)
+{1, 2, 3, 4, 5, 6, 7, 8, 9}
+>>> s1.difference(s2)
+{1, 2, 3}
+```
+
+## 좀 더 알이보기
+파이썬이 기본으로 제공하는 여러 함수가 있습니다. 당장 `print()`를 알고 있을 것입니다.<br>
+만약 모르는 것이 나타나면 그때 그때 찾아봐야 할 것입니다.<br>
+파이썬에게 물어보는 방법도 있죠.
+```cmd
+>>> help(int)
+Help on class int in module builtins:
+
+class int(object)
+ |  int([x]) -> integer
+ |  int(x, base=10) -> integer
+ |
+ |  Convert a number or string to an integer, or return 0 if no arguments
+ |  are given.  If x is a number, return x.__int__().  For floating point
+ |  numbers, this truncates towards zero.
+:
+```
+
+아니면 [파이썬 공식 Reference 문서](https://docs.python.org/3/reference/index.html)를 읽어도 됩니다.
+
+
+
+## 과제
+다음은 문자열 포맷팅의 3가지 방법입니다.
+1. 포멧코드 이용하기
+``
+```python
+if __name__ == '__main__':
+
+    integer = 10
+    floating-point = 3.5
+    comflex = (3 + 2j)
+    
+    print("%d", % integer)
+    print(f'{floating-point}')
+    print('{}'.format(comflex))
 ```
