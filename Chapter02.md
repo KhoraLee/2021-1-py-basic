@@ -155,7 +155,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 그럼 이렇게 말해봅시다. 정수, 실수, 복소수, 문자열, ...
 
 방금 까지 숫자를 이용한 연산을 공부해온 여러분이라면 숫자형이 무엇을 의미하는지 알 것입니다.<br>
-**integer! float-pinting Number! comflex!
+**integer! floating-point number! complex!
 ```cmd
 >>> type(2)
 <class 'int'>
@@ -167,7 +167,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 ```
 
 ### 변수
-대부분의 프로그래밍 언어 수업에서는 변수와 자료형을 함께 공부합니다<br>
+대부분의 프로그래밍 언어 수업에서는 변수와 자료형을 함께 공부합니다.<br>
 왜냐하면 변수를 선언할 때 어떤 자료형을 쓸 것인지 정해 주어야 했습니다.<br>
 하지만 파이썬은 그럴 필요가 없습니다. 단순히 이름만 붙여주면 되기 때문입니다.
 
@@ -293,7 +293,7 @@ if __name__ == '__main__':
 
     integer = 10
     floating-point = 3.5
-    comflex = (3 + 2j)
+    complex = (3 + 2j)
     
     print("%d", % integer)
     print(f'{floating-point}')
@@ -433,6 +433,7 @@ dict_items([('apple', '사과'), ('KCA', 'KonKuk Computer Associate')])
 - `&`: intersection 
 - `|`: union
 - `-`: difference
+
 다음과 같이 선언된 집합이 있다고 생각해 봅시다.
 ```cmd
 >>> s1
